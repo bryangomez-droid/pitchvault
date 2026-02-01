@@ -1,0 +1,32 @@
+backend:
+  name: git-gateway
+  branch: main
+
+publish_mode: simple
+
+media_folder: "img/uploads"
+public_folder: "/img/uploads"
+
+collections:
+  - name: "catalogo"
+    label: "Catálogo"
+    files:
+      - name: "tacos"
+        label: "Tacos"
+        file: "data/tacos.json"
+        format: "json"
+        fields:
+          - label: "Tacos"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.nombre}} — {{fields.superficie}}"
+            fields:
+              - { label: "Nombre", name: "nombre", widget: "string" }
+              - { label: "Marca", name: "marca", widget: "string", required: false }
+              - label: "Superficie"
+                name: "superficie"
+                widget: "select"
+                options: ["FG", "AG", "TF", "IC"]
+              - { label: "Color", name: "color", widget: "string", required: false }
+              - { label: "Imagen", name: "imagen", widget: "image" }
+              - { label: "Notas", name: "notas", widget: "text", required: false }

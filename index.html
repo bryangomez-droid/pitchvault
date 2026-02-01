@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="assets/brand/pitchvault-logo.png" />
+  <title>PITCHVAULT</title>
+  <meta name="description" content="Catálogo visual de tacos de fútbol." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="wrap topbar__inner">
+      <div class="brand">
+        <a class="brand__link" href="/" aria-label="Inicio">
+          <img class="brand__logo" src="assets/brand/pitchvault-logo.png" alt="PITCHVAULT" />
+          <div class="brand__txt">
+            <p class="brand__title">PITCHVAULT</p>
+          </div>
+        </a>
+      </div>
+
+      <nav class="topnav" aria-label="Navegación">
+        <a href="#catalogo">Catálogo</a>
+        <a href="/admin/" class="admin-link">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <div class="wrap hero__inner">
+        <div class="hero__copy">
+          <h1>Catálogo de tacos</h1>
+          <p class="muted">Explora modelos por superficie y búsqueda.</p>
+
+          <div class="controls" aria-label="Filtros">
+            <label class="control">
+              <span>Buscar</span>
+              <input id="q" type="search" placeholder="Marca, color, superficie..." />
+            </label>
+
+            <label class="control">
+              <span>Superficie</span>
+              <select id="surface">
+                <option value="">Todas</option>
+                <option value="FG">FG</option>
+                <option value="AG">AG</option>
+                <option value="TF">TF</option>
+                <option value="IC">IC</option>
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <div class="scorecard">
+          <div class="scorecard__line" aria-hidden="true"></div>
+          <div class="scorecard__content">
+            <p class="scorecard__label">Panel</p>
+            <p class="scorecard__title">Administración</p>
+            <p class="muted">Agregar y editar modelos.</p>
+            <a class="btn" href="/admin/">Entrar</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="catalogo" class="section">
+      <div class="wrap">
+        <div class="section__head">
+          <h2>Catálogo</h2>
+          <p class="muted" id="count"></p>
+        </div>
+
+        <div class="grid" id="grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="lightbox" class="lightbox" aria-label="Vista previa">
+    <button class="lightbox__close" data-close aria-label="Cerrar">✕</button>
+    <img id="lbImg" alt="" />
+    <div class="lightbox__meta">
+      <h3 id="lbTitle"></h3>
+      <p id="lbSub" class="muted"></p>
+      <p id="lbNotes" class="muted"></p>
+    </div>
+  </dialog>
+
+  <footer class="footer footer--fixed">
+    <div class="wrap footer__inner">
+      <p class="muted">© <span id="year"></span> PITCHVAULT</p>
+    </div>
+  </footer>
+
+  <script src="catalog.js"></script>
+</body>
+</html>
