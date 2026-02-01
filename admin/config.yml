@@ -2,7 +2,7 @@ backend:
   name: git-gateway
   branch: main
 
-publish_mode: simple
+publish_mode: editorial_workflow
 
 media_folder: "img/uploads"
 public_folder: "/img/uploads"
@@ -30,3 +30,5 @@ collections:
               - { label: "Color", name: "color", widget: "string", required: false }
               - { label: "Imagen", name: "imagen", widget: "image" }
               - { label: "Notas", name: "notas", widget: "text", required: false }
+
+
