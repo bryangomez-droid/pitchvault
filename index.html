@@ -7,6 +7,9 @@
   <title>PITCHVAULT</title>
   <meta name="description" content="Catálogo visual de tacos de fútbol." />
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- Netlify Identity Widget (NECESARIO para invitaciones y login) -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 
 <body>
@@ -95,5 +98,27 @@
   </footer>
 
   <script src="catalog.js"></script>
+
+  <!-- FIX: si llega invite_token lo mandamos a /invite.html -->
+  <script>
+    (function () {
+      // Si alguien abre el link de invitación (invite_token) lo redirigimos
+      if (window.location.hash && window.location.hash.includes("invite_token")) {
+        window.location.href = "/invite.html" + window.location.hash;
+        return;
+      }
+
+      // Inicializar Identity (no molesta aunque no se use)
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.init();
+      }
+
+      // Año footer
+      const y = document.getElementById("year");
+      if (y) y.textContent = new Date().getFullYear();
+    })();
+  </script>
 </body>
 </html>
+
+
